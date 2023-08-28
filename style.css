@@ -1,0 +1,342 @@
+body{
+  scroll-behavior: smooth;
+  background: linear-gradient(-45deg, #776565, #6f6167, #6b797e, #5b847a);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+/* use scaner loading animation */
+
+.scanner h1{
+    /* text-align: center; */
+    /* text-transform: capitalize; */
+    /* border-bottom: 3px solid rgb(71, 76, 71); */
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    /* background-color: azure; */
+    /* box-shadow: 5px 10px 15px 18px rgb(193, 205, 193); */
+}
+.scanner h1:before{
+  /* text-align: center; */
+  content:"Cal_office";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50;
+  height: 100%;
+  /* border-right: 4px #17FEFF; */
+  overflow: hidden;
+  color: #85aae4;
+  animation: load 4s linear infinite;
+}
+/* note */
+.note{
+  font-size: larger;
+  text-align: center;
+  color: yellow;
+  font-weight: 900;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+@keyframes load{
+  0%, 10%, 100%{
+    width:0;
+  }
+  60%, 80%{
+    width:100%;
+  }
+}
+.container{
+  flex-direction: inherit;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+.cal_box{
+    border: 100px solid rgb(89, 112, 87);
+    border-radius: 10px;
+    margin: 20px;
+    background-image:linear-gradient(rgb(208, 180, 180),rgb(91, 102, 103)); 
+    color: white;
+    box-shadow: 5px 10px 15px 18px rgb(45, 48, 45);
+    transition: transform .2s;
+
+}
+.cal_box:hover{
+  transform: scale(1.1);
+} 
+/* make a button fader */
+button{
+    text-transform: uppercase;
+    font-family:Arial, Helvetica, sans-serif;
+    box-shadow: 5px 10px#818891 ;
+    font-weight: bolder;
+    width: 150px;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 3px;
+}
+/*  button click fader */
+ button:hover {
+  opacity: 0.8;
+}
+/* create a calculator */
+h2{
+  color: rgb(118, 162, 181);
+}
+.container{
+  margin: auto;
+}
+#answer{
+  width: 300px;
+  border-radius: 10px;
+  box-shadow:inset 5px 5px 5px grey, inset -5px -5px 5px white;
+}
+input{
+  font-size: 30px;
+  width: 60px;
+  height: 50px;
+  margin: 5px;
+  border: 0 slid;
+  border-radius: 8px;
+  background-color: rgb(230,230,230);
+  outline: none;
+  box-shadow: 5px 5px 5px grey,-5px -5px 5px white;
+
+}
+.calc{
+  background-color: rgb(220,220,220);
+  padding: 10px;
+  border-radius: 20px;
+  display: inline-block;
+  box-shadow: 5px 5px 5px grey,-5px -5px 5px grey;
+}
+input:hover{
+  box-shadow:inset 5px 5px 5px grey, inset -5px -5px 5px white;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+/* create a age calculator///// */
+*,*:after,*:before{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.age-calculate{
+	max-width: 600px;
+	width: 100%;
+	color: #fff;
+	margin: 0 auto;
+	text-align: center;
+	padding: 30px;
+	border-radius: 30px;
+	background: linear-gradient(to bottom, #007193 50%, #06024e);
+}
+.age-calculate input[type="date"]{
+	width: 100%;
+	display: block;
+	margin: 0 auto 20px;
+	font-size: 20px;
+	padding: 10px;
+	border-radius: 10px;
+	border:0;
+}
+.age-calculate button{
+	width: 60%;
+  display: block;
+  margin: 0 auto 10px;
+  font-size: 16px;
+  padding: 13px;
+  border-radius: 10px;
+  border: 0;
+  background: #56726e;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}
+#calculateAge{
+	font-size: 24px;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+
+/* make a footer */
+.footer-dark {
+    padding:50px 0;
+    color:white;
+    background-image: linear-gradient(rgba(51, 8, 23, 0.775),rgba(82, 15, 111, 0.775), rgb(9, 9, 8));
+
+  }
+  
+  .footer-dark h3 {
+    margin-top:0;
+    margin-bottom:12px;
+    font-weight:bold;
+    font-size:16px;
+  }
+  
+  .footer-dark ul {
+    padding:0;
+    list-style:none;
+    line-height:1.6;
+    font-size:14px;
+    margin-bottom:0;
+  }
+  
+  .footer-dark ul a {
+    color:inherit;
+    text-decoration:none;
+    opacity:0.6;
+  }
+  
+  .footer-dark ul a:hover {
+    opacity:0.8;
+  }
+  
+  @media (max-width:767px) {
+    .footer-dark .item:not(.social) {
+      text-align:center;
+      padding-bottom:20px;
+    }
+  }
+  
+  .footer-dark .item.text {
+    margin-bottom:36px;
+  }
+  
+  @media (max-width:767px) {
+    .footer-dark .item.text {
+      margin-bottom:0;
+    }
+  }
+  
+  .footer-dark .item.text p {
+    opacity:0.6;
+    margin-bottom:0;
+  }
+  /* .col item social {
+    transition: transform .2s;
+
+  }
+  .col item social:hover{
+    transform: scale(1.5);
+
+  } */
+
+  
+  .footer-dark .item.social {
+    text-align:center;
+  }
+  
+  @media (max-width:991px) {
+    .footer-dark .item.social {
+      text-align:center;
+      margin-top:20px;
+    }
+  }
+  
+  .footer-dark .item.social > a {
+    font-size:20px;
+    width:36px;
+    height:36px;
+    line-height:36px;
+    display:inline-block;
+    text-align:center;
+    border-radius:50%;
+    box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+    margin:0 8px;
+    color:#fff;
+    opacity:0.75;
+  }
+  
+  .footer-dark .item.social > a:hover {
+    opacity:0.9;
+  }
+  
+  .footer-dark .copyright {
+    text-align:center;
+    padding-top:24px;
+    opacity:0.3;
+    font-size:13px;
+    margin-bottom:0;
+  }
+  
+  @media (max-width:800px){
+    .container{
+      display: grid;
+    }
+  }

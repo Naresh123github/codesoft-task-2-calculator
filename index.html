@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home_cal office</title>
+</head>
+
+<body>
+    <div class="scanner">
+        <h1>Cal_office</h1>
+    </div>
+    <p class="note">please click the button "calculator"& "age claculator" i have design the two type of calculator</p>
+
+    <div class="container">
+        <div class="cal_box"><button onclick="document.getElementById('id01').style.display='block'"
+                style="width:fit-content;">calculator</button></div>
+
+        <div id="id01" class="modal">
+
+            <page class="modal-content animate">
+                <!-- <div class="imgcontainer"> -->
+                <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+
+                <!-- create a calculator -->
+                <h2>Cal_office calculator</h2>
+                <div class="container" align="center">
+
+                    <form name="calculator">
+                        <div class="calc">
+                            <input type="text" id="answer" name="screen">
+                            <br>
+                            <input type="button" name="one" value="1" onclick="calculator.screen.value+='1'">
+                            <input type="button" name="two" value="2" onclick="calculator.screen.value+='2'">
+                            <input type="button" name="three" value="3" onclick="calculator.screen.value+='3'">
+                            <input type="button" name="reset" value="AC" onclick="calculator.screen.value=''">
+                            <br>
+                            <input type="button" name="four" value="4" onclick="calculator.screen.value+='4'">
+                            <input type="button" name="five" value="5" onclick="calculator.screen.value+='5'">
+                            <input type="button" name="six" value="6" onclick="calculator.screen.value+='6'">
+                            <input type="button" name="operator" value="+" onclick="calculator.screen.value+='+'">
+                            <br>
+                            <input type="button" name="seven" value="7" onclick="calculator.screen.value+='7'">
+                            <input type="button" name="eight" value="8" onclick="calculator.screen.value+='8'">
+                            <input type="button" name="nine" value="9" onclick="calculator.screen.value+='9'">
+                            <input type="button" name="operator" value="-" onclick="calculator.screen.value+='-'">
+                            <br>
+                            <input type="button" name="operator" value="." onclick="calculator.screen.value+='.'">
+
+                            <input type="button" name="zero" value="0" onclick="calculator.screen.value+='0'">
+
+                            <input type="button" name="doit" value="="
+                                onclick="calculator.screen.value=eval(calculator.screen.value)">
+                            <input type="button" name="operator" value="*" onclick="calculator.screen.value+='*'">
+                            <br>
+                            <input type="button" value="(" onclick="calculator.screen.value+='('">
+                            <input type="button" value=")" onclick="calculator.screen.value+=')'">
+                            <input type="button" value="%" onclick="calculator.screen.value+='%'">
+
+                            <input type="button" value="/" onclick="calculator.screen.value+='/'">
+                            <br>
+
+                        </div>
+                    </form>
+                </div>
+
+
+            </page>
+
+
+        </div>
+    </div>
+    <!-- create a age calculator/////// -->
+    <div class="container">
+        <div class="cal_box"><button onclick="document.getElementById('id02').style.display='block'"
+                style="width:fit-content;">Age calculator</button></div>
+
+
+        <div id="id02" class="modal">
+
+            <page class="modal-content animate">
+                <!-- <div class="imgcontainer"> -->
+                <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                    title="Close Modal">&times;</span>
+
+                <!-- create a calculator -->
+                <h2>Age calculator</h2>
+                <div class="container" align="center">
+                    <div class="age-calculate">
+                        <h2>Age Calculator</h2>
+                        <input type="date" id="birth_date" name="">
+                        <button id="calculate">Calculate</button>
+                        <div id="calculateAge"></div>
+                    </div>
+                    <!-- <script type="text/javascript" src="/cal office/script.js"></script> -->
+                    <script>var calculate = document.getElementById('calculate'),
+                            calculateAge = document.getElementById('calculateAge');
+
+                        calculate.addEventListener('click', function () {
+                            var birthDate = document.getElementById('birth_date').value;
+                            birthDate = new Date(birthDate);
+                            todayDate = new Date()
+                            totalAge = Date.now() - birthDate.getTime();
+                            ageYear = new Date(totalAge);
+                            ageYear = Math.abs(ageYear.getUTCFullYear() - 1970);
+
+                            function ageMonth() {
+                                if (todayDate.getMonth() >= birthDate.getMonth()) {
+                                    if (todayDate.getDate() >= birthDate.getDate()) {
+                                        return todayDate.getMonth() - birthDate.getMonth();
+                                    }
+                                    else {
+                                        if ((todayDate.getMonth() - 1) >= birthDate.getMonth()) {
+                                            return (todayDate.getMonth() - 1) - birthDate.getMonth();
+                                        }
+                                        else {
+                                            return ((todayDate.getMonth() - 1) + 12) - birthDate.getMonth();
+                                        }
+                                    }
+                                }
+
+                            };
+                            function ageDay() {
+                                if (todayDate.getDate() > birthDate.getDate()) {
+                                    return todayDate.getDate() - birthDate.getDate();
+                                }
+                                else if (todayDate.getDate() == birthDate.getDate()) {
+                                    return todayDate.getDate() - birthDate.getDate();
+                                }
+                                else {
+                                    let calDate = new Date(birthDate.getFullYear(), birthDate.getMonth(), 0);
+                                    return (todayDate.getDate() + calDate.getDate()) - birthDate.getDate();
+                                }
+                            };
+                            calculateAge.innerHTML = "Your Age " + ageYear + " Years " + ageMonth() + " Months " + ageDay() + " Days"
+
+                        });</script>
+                </div>
+
+
+            </page>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- make a footer -->
+    <br>
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Web design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Hosting</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>follow me</h3>
+                        <ul>
+                            <li><a href="https://www.instagram.com/invites/contact/?i=7w2xnhhwpo22&utm_content=n0hdnmi"><i
+                                        class="ion-social-instagram-outline"></i> instagram</a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=100072955008346"><i
+                                        class="ion-social-facebook-outline"></i> facebook</a></li>
+                            <li><a href="https://wa.me/qr/QD62MR3OAY4QF1"><i class="ion-social-whatsapp-outline"></i>
+                                    whatapp</a></li>
+                            <li><a href="https://youtube.com/channel/UCBCOofXHKF8Fv79hlZwu0gg"><i
+                                        class="ion-social-youtube-outline"></i> youtube</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>Cal_office</h3>
+                        <p>Safety starts with understanding how developers collect and share your data. Data privacy and
+                            security practices may vary based on your use, region and age The developer provided this
+                            information and may update it over time.</p>
+                    </div>
+                    <div class="col item social"><a href="https://www.facebook.com/profile.php?id=100072955008346"><i
+                                class="icon ion-social-facebook"></i></a><a href="#"><i
+                                class="icon ion-social-twitter"></i></a><a href="#"><i
+                                class="icon ion-social-snapchat"></i></a><a
+                            href="https://www.instagram.com/invites/contact/?i=7w2xnhhwpo22&utm_content=n0hdnmi"><i
+                                class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p style="font-size: 20px ; color: azure;" class="copyright">© 2022-23 <strong>&copy; munna</strong></p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
